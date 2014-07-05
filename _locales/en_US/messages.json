@@ -1,0 +1,11 @@
+{
+  "openBoardTitle": {
+    "message": "Open board with PttChrome"
+  },
+  "openArticleTitle": {
+    "message": "Open article with PttChrome"
+  },
+  "openLinkTitle": {
+    "message": "Open link with PttChrome"
+  }
+}

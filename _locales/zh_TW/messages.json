@@ -1,0 +1,11 @@
+﻿{
+  "openBoardTitle": {
+    "message": "在 PttChrome 開啟此板"
+  },
+  "openArticleTitle": {
+    "message": "在 PttChrome 開啟此文章"
+  },
+  "openLinkTitle": {
+    "message": "在 PttChrome 開啟此連結"
+  }
+}
