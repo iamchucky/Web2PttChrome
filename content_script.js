@@ -9,4 +9,11 @@ if (window == top) {
       }
     }
   });
+  chrome.runtime.onMessage.addListener(function(msg, sender, sendResponse) {
+    // only receive from the extension
+    if (sender.id != 'jfnehifaakillndjaeghdpopciihipmd')
+      return;
+    window.postMessage(msg, window.location.origin);
+    window.focus();
+  });
 }

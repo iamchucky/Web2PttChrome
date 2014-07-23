@@ -2,7 +2,9 @@ var articles = {};
 var selectedArticle = null;
 var selectedId = null;
 //var appUrl = 'http://localhost/';
+//var appUrlPattern = '*://localhost/*';
 var appUrl = 'http://iamchucky.github.io/PttChrome/';
+var appUrlPattern = '*://iamchucky.github.io/PttChrome/*';
 
 var updateArticle = function(tabId) {
   chrome.tabs.sendRequest(tabId, { action: 'getUrl' }, function(url) {
@@ -45,7 +47,15 @@ var getContextClickHandler = function() {
       var board = article.board;
       var aid = article.articleId;
       var url = appUrl + '?site=ptt.cc&board='+board+ ((aid == undefined) ? '' : '&aid='+aid);
-      chrome.tabs.create({ url: url });
+      // query for opened pttchrome
+      chrome.tabs.query({ url:appUrlPattern }, function(tabs) {
+        if (tabs.length == 0) {
+          chrome.tabs.create({ url: url });
+        } else {
+          // send command
+          chrome.tabs.sendMessage(tabs[0].id, { action: 'navigate', data: { board: board, aid: aid } });
+        }
+      });
     }
   };
 };
@@ -65,7 +75,16 @@ chrome.pageAction.onClicked.addListener(function(tab) {
     var board = article.board;
     var aid = article.articleId;
     var url = appUrl + '?site=ptt.cc&board='+board+ ((aid == undefined) ? '' : '&aid='+aid);
-    chrome.tabs.sendRequest(tab.id, { action: 'changeUrl', data: url });
+
+    // query for opened pttchrome
+    chrome.tabs.query({ url:appUrlPattern }, function(tabs) {
+      if (tabs.length == 0) {
+        chrome.tabs.sendRequest(tab.id, { action: 'changeUrl', data: url });
+      } else {
+        // send command
+        chrome.tabs.sendMessage(tabs[0].id, { action: 'navigate', data: { board: board, aid: aid } });
+      }
+    });
   }
 });
 

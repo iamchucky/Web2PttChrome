@@ -1,6 +1,6 @@
 {
   "name": "Web2PttChrome",
-  "version": "1.0",
+  "version": "1.1",
   "description": "Open the PTT Web article in PttChrome.",
   "icons": { 
     "16": "icon_16.png",
@@ -12,7 +12,7 @@
   "background": { "scripts": ["background.js"] },
   "content_scripts": [
     { 
-      "matches": ["*://www.ptt.cc/bbs/*"], 
+      "matches": ["*://www.ptt.cc/bbs/*", "*://iamchucky.github.io/PttChrome/*"], 
       "js": ["content_script.js"] 
     }
   ],
