@@ -8,6 +8,7 @@
   },
 
   "default_locale": "en_US",
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAhwbLD4BSHXEHULZQw2vzeny9RhfYTSfpowy+iuBCX3GaRPmtSMOT/49VeB/TEfFuHQE2uDNh0hCmS+UaC+hdXMFeGiJU6gOtAbjYSd+Fsa1Gu4uuDc+J4AJoyGBoz0jOd0iJ7d5COQ1GdCpne/vZC+IwV/Xl7Tx9YTJ1Jo89D7cymiavpwi+PXtiE2PK+geA9DwiDzBXpDrjgrp18wXHNer3heUXl4CLkLEjJ2CJoAFqLnE7pc6+m37STolCwxqqWQvTXZXGd5AoE3ZuFfBs4lRYkaxMr5eo1RAgRkmbVjS5HSKy4KDlaxQf2nvbag+Gt2yHK+bV2DoT0hQw0eMUYQIDAQAB",
 
   "background": { "scripts": ["background.js"] },
   "content_scripts": [
